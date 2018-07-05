@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "0cfdc6f0-8d86-4338-be7d-7b3c755105da",
+		"name": "API RESTFul Album de Fotos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Imagen",
+			"description": "",
+			"item": [
+				{
+					"name": "Image save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Haciendo asado",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "album",
+									"value": "5b3e26d942a3b30a478c0e92",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/api/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3700/api/image/5b3e26ef42a3b30a478c0e93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"image",
+								"5b3e26ef42a3b30a478c0e93"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Images by album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3700/api/images/5b3e26d942a3b30a478c0e92",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"images",
+								"5b3e26d942a3b30a478c0e92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Llegan más amigos\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3700/api/image/5b3e26ef42a3b30a478c0e93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"image",
+								"5b3e26ef42a3b30a478c0e93"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3700/api/image/5b3e27d242a3b30a478c0e95",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"image",
+								"5b3e27d242a3b30a478c0e95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"description": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/api/upload-image/5b3e26ef42a3b30a478c0e93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"upload-image",
+								"5b3e26ef42a3b30a478c0e93"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3700/api/get-image/HSt0nxrCm7Q6YQNVXvdPorL5.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"get-image",
+								"HSt0nxrCm7Q6YQNVXvdPorL5.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Album",
+			"description": "",
+			"item": [
+				{
+					"name": "Album save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Cumple Juan 30",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Fiesta de cumpleaños de Juan - 2018",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/api/album",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"album"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Albums index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3700/api/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Albums show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3700/api/album/5b3d2c503ffc2afb7bb17ed3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"album",
+								"5b3d2c503ffc2afb7bb17ed3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Album update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Año Nuevo 2018",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Fiesta de fin de año con amigos",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/api/album/5b3e26d942a3b30a478c0e92",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"album",
+								"5b3e26d942a3b30a478c0e92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Album delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3700/api/album/5b3d2c8a3ffc2afb7bb17ed4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"api",
+								"album",
+								"5b3d2c8a3ffc2afb7bb17ed4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagen prueba",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3700/api/prueba-image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3700",
+					"path": [
+						"api",
+						"prueba-image"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
