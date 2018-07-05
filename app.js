@@ -7,6 +7,7 @@ const app = express();
 
 // carga de rutas
 const album_routes = require('./routes/album');
+const image_routes = require('./routes/image');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 
 // rutas base
 app.use('/api', album_routes);
+app.use('/api', image_routes);
 
 module.exports = app;
 
