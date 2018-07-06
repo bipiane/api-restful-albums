@@ -1,5 +1,6 @@
 'use strict';
 
+const Utilidades = require('../utilidades');
 const Album = require('../models/album');
 
 function getAlbum(req, res) {
@@ -42,7 +43,10 @@ function saveAlbum(req, res) {
 
     album.save((err, albumStored) => {
         if (err) {
-            res.status(500).send({message: 'Error en al guardar el album'});
+            res.status(500).send({
+                message: 'Error en al guardar el album',
+                errors: Utilidades.obtenerErrores(err)
+            });
         } else {
             if (!albumStored) {
                 res.status(404).send({message: 'No se ha guardado el album!!'});
@@ -57,9 +61,12 @@ function updateAlbum(req, res) {
     const albumId = req.params.id;
     const update = req.body;
 
-    Album.findByIdAndUpdate(albumId, update, (err, albumUpdated) => {
+    Album.findByIdAndUpdate(albumId, update, {runValidators: true}, (err, albumUpdated) => {
         if (err) {
-            res.status(500).send({message: 'Error al actualizar el album'});
+            res.status(500).send({
+                message: 'Error al actualizar el album',
+                errors: Utilidades.obtenerErrores(err)
+            });
         } else {
             if (!albumUpdated) {
                 res.status(404).send({message: 'No se ha podido actualizar el album!!'});

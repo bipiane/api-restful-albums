@@ -1,5 +1,6 @@
 'use strict';
 
+const Utilidades = require('../utilidades');
 const path = require('path');
 const Image = require('../models/image');
 const Album = require('../models/album');
@@ -72,7 +73,10 @@ function saveImage(req, res) {
 
     image.save((err, imageStored) => {
         if (err) {
-            res.status(500).send({message: 'Error en la petición'});
+            res.status(500).send({
+                message: 'Error en la petición',
+                errors: Utilidades.obtenerErrores(err)
+            });
         } else {
             if (!imageStored) {
                 res.status(404).send({message: 'No se ha guardado la imagen!!'});
@@ -88,9 +92,12 @@ function updateImage(req, res) {
     const imageId = req.params.id;
     const update = req.body;
 
-    Image.findByIdAndUpdate(imageId, update, (err, imageUpdated) => {
+    Image.findByIdAndUpdate(imageId, update, {runValidators: true}, (err, imageUpdated) => {
         if (err) {
-            res.status(500).send({message: 'Error en la petición'});
+            res.status(500).send({
+                message: 'Error en la petición',
+                errors: Utilidades.obtenerErrores(err)
+            });
         } else {
             if (!imageUpdated) {
                 res.status(404).send({message: 'No se ha actualizado la imagen!!'});
@@ -127,9 +134,12 @@ function uploadImage(req, res) {
         const file_split = file_path.split('/');
         const file_name = file_split[1];
 
-        Image.findByIdAndUpdate(imageId, {picture: file_name}, (err, imageUpdated) => {
+        Image.findByIdAndUpdate(imageId, {picture: file_name}, {runValidators: true}, (err, imageUpdated) => {
             if (err) {
-                res.status(500).send({message: 'Error en la petición'});
+                res.status(500).send({
+                    message: 'Error en la petición',
+                    errors: Utilidades.obtenerErrores(err)
+                });
             } else {
                 if (!imageUpdated) {
                     res.status(404).send({message: 'No se ha actualizado la imagen!!'});
