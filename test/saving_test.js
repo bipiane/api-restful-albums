@@ -1,4 +1,5 @@
 const assert = require('assert');
+const Utilidades = require('../utilidades');
 const Album = require('../models/album');
 const Image = require('../models/image');
 
@@ -9,7 +10,11 @@ describe('Saving objects', function () {
   });
 
   it('Save album', function (done) {
-    album.save().then(function () {
+    album.save(err => {
+      if (err) {
+        console.log('errors:', Utilidades.obtenerErrores(err))
+      }
+    }).then(function () {
       assert(!album.isNew);
       done();
     });
@@ -22,7 +27,11 @@ describe('Saving objects', function () {
       album: album
     });
 
-    image.save().then(function () {
+    image.save(err => {
+      if (err) {
+        console.log('errors:', Utilidades.obtenerErrores(err))
+      }
+    }).then(function () {
       assert(!image.isNew);
       done();
     });
